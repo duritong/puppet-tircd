@@ -15,13 +15,13 @@ export HTTPS_CA_DIR=/usr/share/ca-certificates/
     mode    => '0644';
   } -> file_line{
     'enable_ssl_on_tircd':
-      path    => '/etc/tircd.cfg',
-      line    => 'use_ssl 1',
-      pattern => '^use_ssl';
+      path  => '/etc/tircd.cfg',
+      line  => 'use_ssl 1',
+      match => '^use_ssl';
     'tircd_port':
-      path    => '/etc/tircd.cfg',
-      line    => "port ${port}"
-      pattern => '^port',
+      path  => '/etc/tircd.cfg',
+      line  => "port ${port}"
+      match => '^port',
   } ~> service{'tircd':
     ensure => running,
     enable => true,
