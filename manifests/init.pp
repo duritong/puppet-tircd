@@ -23,8 +23,9 @@ export HTTPS_CA_DIR=/usr/share/ca-certificates/
       line  => "port ${port}",
       match => '^port';
   } ~> service{'tircd':
-    ensure => running,
-    enable => true,
+    ensure    => running,
+    enable    => true,
+    hasstatus => false,
   }
 
 }
