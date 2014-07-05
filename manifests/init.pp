@@ -20,8 +20,8 @@ export HTTPS_CA_DIR=/usr/share/ca-certificates/
       match => '^use_ssl';
     'tircd_port':
       path  => '/etc/tircd.cfg',
-      line  => "port ${port}"
-      match => '^port',
+      line  => "port ${port}",
+      match => '^port';
   } ~> service{'tircd':
     ensure => running,
     enable => true,
